@@ -127,4 +127,58 @@ console.log(thing(2, 4))// wow its being used :DD
 // Arrow functions are not able to be used as constructors for a functions. 
 let testFunc = (x, y) => x + y; // (..args) => { body }
 console.log(testFunc(2,3)); 
-// Function Arguments
+// Function Arguments 
+// 
+//     These are stored in the arguments variable of the function, allowing 
+//     for the user to iterate through the argumants with a for .. of loop. 
+
+function sayHello(){ // ex from Nathan Bean on function arguments in ksu CC120
+    for(let name of arguments){
+        console.log('Hello, ${name}')
+    }
+}
+// this allows for dynamic arguments to be passed in a function
+
+// returns are able to return a value, function or undefined object. 
+
+// Function Variables
+
+// First order functions mean functions can be assigned to variables. 
+
+// Functional Scope: 
+//
+//    Basically a new scope is made for each function body. 
+//    Parent scope is still accessable. 
+
+// Block Scope: 
+// 
+//    The imperative paradigm classic, best thing to exist. 
+//    It allows functions and control flow objects to have their own scoping. 
+//    This is why 'let' exists btw
+
+
+
+// ARRAYS :DdDdDDD!!!
+
+// These have full browser support
+//To declare in literal syntax:
+let arr = [1, 2, "foo", "bar", 3.2, null, ["Fizz", "buzz"]];
+// w constructr is ```new Array()``` for object
+// notice the array within the array, we can do n-dim jagged arrays which is wild
+
+//important functions of an array
+ 
+arr.push(11); 
+// adds an item to the array 
+
+arr.at(2); // gets item at given index of the array
+// this is alsosupported by all modern browsers as of March 2022 - w3schools
+
+arr.concat([5,6,7]); 
+// this will concatenate the passed array to the caller array.
+// item type doesn't matter
+
+let text = fruits.constructor; 
+// the returned object is the function Array() { [ native code ]}
+
+
