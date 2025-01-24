@@ -165,11 +165,23 @@ function sayHello(){ // ex from Nathan Bean on function arguments in ksu CC120
 let arr = [1, 2, "foo", "bar", 3.2, null, ["Fizz", "buzz"]];
 // w constructr is ```new Array()``` for object
 // notice the array within the array, we can do n-dim jagged arrays which is wild
+arr.sort(); 
+arr.splice(2, 0, "Mario", "Luigi"); 
 
+const array2 = arr.toReversed();
+console.log(array2);  
+const array3 = arr.toSorted(); 
+console.log(array3); 
+
+const array4 = arr.toSpliced(2, 0, "lemon", "grapefruit"); 
+console.log(array4); 
 //important functions of an array
- 
+let num = arr.length; 
 arr.push(11); 
 // adds an item to the array 
+arr.pop(); 
+
+
 
 arr.at(2); // gets item at given index of the array
 // this is alsosupported by all modern browsers as of March 2022 - w3schools
@@ -177,8 +189,61 @@ arr.at(2); // gets item at given index of the array
 arr.concat([5,6,7]); 
 // this will concatenate the passed array to the caller array.
 // item type doesn't matter
+const fruits = ["banana", "orange", "apple", "grape"]; 
+fruits.reverse(); 
+fruits.shift(); 
+fruits.unshift(); 
+const vals = fruits.values(); 
+console.log(fruits); 
+const citrus = fruits.slice(1,2); 
+console.log(citrus); 
+//(ES6) you can copy items within from specific source and dest indices
+fruits.copyWithin(2, 0); 
+fruits.copyWithin(1,0,1); // copy from 1, elements from 0-1; 
 
 let text = fruits.constructor; 
 // the returned object is the function Array() { [ native code ]}
 
+function myfn(total, num){
+    return total-num; 
+}
+const nums = [4, 9, 20, 49]; 
+const arrrrg = nums.map(Math.sqrt); // (ES5) maps an arbitrary function to the elements of an array. 
+console.log(arrrrg.reduce(myfn)); 
+console.log(arrrrg.reduceRight(myfn)); 
+//to traverse entries (ES6)
+const list = fruits.entries(); 
+// can loop through with for .. of list
+// ES6 to fill an element with a value, can be targeted as well by adding range indices
+ fruits.fill("Mango"); 
+ fruits.fill("Kiwi", 2, 4); 
+// allows for a filter to be placed on an array  (ES5)
+ const ages = [32, 33, 16, 40];
+const result = ages.filter(checkAdult);
 
+function checkAdult(age) {
+  return age >= 18;
+}
+// (ES6) creates a new array obj from anything with a length property or iterable obj. 
+Array.from("abcdefg"); 
+
+let thing = fruits.join(" and "); // returns array as string, does not change original arr. 
+let keys = fruits.keys(); // returns iterator containing keys of array. (ES6)
+// find methods           returns                                                js Intro
+//  - indexOf(value, index)         index of first element with specified value     ES5
+//  - lastIndexOf(value, index)     index of last element with a specified value    ES5          
+//  - find(fn)            value of first element that passes a test                 ES6
+//  - findIndex(fn)       index of the first element that passes a test             ES6
+//  - findLast(fn)        value of last element that passes a test                  ES2023
+//  - findLastIndex(fn)   index of the last element that passes a test              ES2023
+//  - some(fn)            check if values pass test, returns true. else false       ES3
+
+// Sub arrays             returns                                                js intro
+//  - flat((opt int to target an index))              concatenated sub array elements                         supported in 2020
+//  - flatMap(fn)           new flat array after mapping all array elements         supported in 2020
+
+// iterations                     returns                                                js intro
+//  - forEach(fn)                 calls function for each element                       ES5
+//  - includes(value, (opt pos))  returns true if an array has a specific val,
+//                                returns false if not.                                 ES7
+// 
